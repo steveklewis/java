@@ -1,5 +1,7 @@
 package com.mycompany.app;
 
+import java.io.InputStream;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -33,6 +35,7 @@ public class AppTest
      */
     public void testApp()
     {
+        InputStream is = getClass().getResourceAsStream( "/test.properties" );
         assertTrue( true );
     }
 }
