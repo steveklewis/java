@@ -1,0 +1,1 @@
+Working through the blog series on modern Java at <a href="http://blog.paralleluniverse.co/2014/05/15/modern-java-pt3/">Not Your Father's Java: An Opinionated Guide to Modern Java Development, Part 3</a>
