@@ -5,3 +5,6 @@
 *.war
 *.ear
 /jmodern/.nb-gradle/private/
+/jmodern-web/.nb-gradle/private/
+jmodern-web/.gradle
+jmodern-web/build/
