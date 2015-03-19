@@ -5,3 +5,8 @@
 *.war
 *.ear
 /jmodern/.nb-gradle/private/
+/queues/nbproject/private/
+/queues/build/
+
+spring/gs-rest-service/.gradle/
+spring/gs-rest-service/build/
