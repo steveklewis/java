@@ -8,4 +8,7 @@ java
   <li>
 <a href="http://stackoverflow.com/questions/2443324/best-practice-for-partial-updates-in-a-restful-service">Best practice for partial updates in a RESTful service</a>
   </li>
+  <li>
+    <a href="https://medium.com/pointer-io/exclusive-to-pointer-8ecef084c7e">Thoughts from a Tech Lead</a>
+  </li>
 </ul>
