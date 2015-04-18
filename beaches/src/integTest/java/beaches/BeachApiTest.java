@@ -8,6 +8,7 @@ package beaches;
 import static com.jayway.restassured.RestAssured.*;
 import static com.jayway.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
+import org.junit.Test;
 
 
 /**
@@ -15,6 +16,9 @@ import static org.hamcrest.Matchers.*;
  *
  * @author slewis
  */
-public class BeachApiTestCase {
-    
+public class BeachApiTest {
+    @Test 
+    public void testGet() {
+        //throw new RuntimeException();
+    }
 }
