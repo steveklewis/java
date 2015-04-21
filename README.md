@@ -11,4 +11,7 @@ java
   <li>
     <a href="https://medium.com/pointer-io/exclusive-to-pointer-8ecef084c7e">Thoughts from a Tech Lead</a>
   </li>
+  <li>
+    <a href="http://www.infoq.com/presentations/evolutionary-architecture-microservices-cd">Evolutionary Architecture and Microservices - A Match Enabled by Continuous Delivery</a>
+  </li>
 </ul>
