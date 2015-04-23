@@ -10,11 +10,13 @@ package beaches;
  * @author slewis
  */
 public class Beach {
-    public int id;
+    public Integer id;
     public String name;
-    public float score;
+    public Float score;
     
-    public Beach(int id, String name, float score) {
+    public Beach() {}
+    
+    public Beach(Integer id, String name, Float score) {
         this.id = id;
         this.name = name;
         this.score = score;

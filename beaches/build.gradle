@@ -32,8 +32,10 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
+    compile("org.apache.httpcomponents:httpclient:4.4.1")
+    compile("commons-codec:commons-codec:1.10")
     compile("org.springframework.boot:spring-boot-starter-web")
-    testCompile("com.jayway.restassured:rest-assured:2.4.1")
+    compile("com.fasterxml.jackson.core:jackson-databind")
     testCompile("junit:junit")
 
     integTestCompile sourceSets.main.output

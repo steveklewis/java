@@ -17,6 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class BeachesController {
     @RequestMapping("/beaches")
     public Beach beaches(@RequestParam(value="id") int id) {
-        return new Beach(id, "name", 100);
+        return new Beach(id, "name", new Float(100));
     }
 }
