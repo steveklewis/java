@@ -17,6 +17,13 @@ jar {
     version =  '0.1.0'
 }
 
+sourceSets {
+    integTest {
+        java.srcDir file('src/integTest/java')
+        resources.srcDir file('src/integTest/resources')
+    }
+}
+
 repositories {
     mavenCentral()
 }
@@ -25,10 +32,26 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
+    compile("org.apache.httpcomponents:httpclient:4.4.1")
+    compile("commons-codec:commons-codec:1.10")
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile("com.fasterxml.jackson.core:jackson-databind")
     testCompile("junit:junit")
+
+    integTestCompile sourceSets.main.output
+    integTestCompile configurations.testCompile
+    integTestCompile sourceSets.test.output
+    integTestCompile configurations.testRuntime
+    
 }
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }
+
+task integTest(type: Test) {
+    testClassesDir = sourceSets.integTest.output.classesDir
+    classpath = sourceSets.integTest.runtimeClasspath
+}
+
+check.dependsOn integTest
