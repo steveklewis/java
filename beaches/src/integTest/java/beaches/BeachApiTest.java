@@ -24,10 +24,20 @@ import org.springframework.web.client.RestTemplate;
 public class BeachApiTest {
 
     @Test
+    public void testRequiresLogin() {
+        Assert.fail();
+    }
+    
+    @Test
+    public void testPostAddsLocationHeader() {
+        Assert.fail();
+    }
+    
+    @Test
     public void testGet() {
         
         String host = "127.0.0.1";
-        int port = 8000;
+        int port = 8080;
         String username = "admin";
         String password = "admin";
         
@@ -35,19 +45,20 @@ public class BeachApiTest {
         
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Basic " + new String(Base64.encodeBase64((username + ":" + password).getBytes(Charset.forName("US-ASCII")))));
-        HttpEntity<byte[]> entity = new HttpEntity<>(headers);
-        ResponseEntity<byte[]> response = template.exchange("http://127.0.0.1:8000/beaches/", HttpMethod.valueOf("GET"), entity, byte[].class);
-        
+       
         Beach beach = new Beach(0, "St. Petersburg", new Float(90));
         
         HttpEntity<Beach> beachEntity = new HttpEntity<>(beach, headers);
 
+        String url = String.format("http://%s:%d/beaches/", host, port);
+        
         ResponseEntity<Beach> postedBeach = template.exchange(
-                "http://127.0.0.1:8000/beaches/",
+                url,
                 HttpMethod.POST,
                 beachEntity,
                 Beach.class);
 
         Assert.assertNotSame(0, postedBeach.getBody().id);
+        Assert.assertNotNull(postedBeach.getHeaders().get("Location"));
     }
 }
