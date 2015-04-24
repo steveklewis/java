@@ -14,16 +14,6 @@ package beaches;
  *
  * @author slewis
  */
-public class Beach {
-    public Integer id;
-    public String name;
-    public Float score;
+public class WebSecurityConfig {
     
-    public Beach() {}
-    
-    public Beach(Integer id, String name, Float score) {
-        this.id = id;
-        this.name = name;
-        this.score = score;
-    }
 }
