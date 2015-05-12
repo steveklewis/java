@@ -14,4 +14,7 @@ java
   <li>
     <a href="http://www.infoq.com/presentations/evolutionary-architecture-microservices-cd">Evolutionary Architecture and Microservices - A Match Enabled by Continuous Delivery</a>
   </li>
+  <li>
+    <a href="http://www.infoq.com/presentations/java8-streams-lambda">Java 8 Language Capabilities, What's in it for you? - Entertaining talk by Venkat Subramaniam</a>
+  </li>
 </ul>
