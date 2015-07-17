@@ -10,6 +10,7 @@ Highlights:
 7. Gradle build system is used, with accompanying build.gradle file.
 
 Prerequisites:
+* Java 8 is required.
 * gradle is installed on the machine and gradle is available in your path.
 * git is installed on the machine and git is available in your path.
 
