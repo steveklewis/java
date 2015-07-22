@@ -4,8 +4,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
-import multiformat.TestStoryBean;
-import multiformat.TestUserBean;
+import multiformat.models.TestStoryBean;
+import multiformat.models.TestUserBean;
 
 /**
  *

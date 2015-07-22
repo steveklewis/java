@@ -1,4 +1,4 @@
-package multiformat;
+package multiformat.models;
 
 import java.util.Date;
 
