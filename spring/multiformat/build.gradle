@@ -27,9 +27,7 @@ targetCompatibility = 1.8
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
-    compile files('./src/main/resources/data-exporter-1.0.0.jar')
     testCompile("junit:junit")
-    runtime files('./src/main/resources/commons-lang-2.6.jar')
 }
 
 task wrapper(type: Wrapper) {

@@ -1,9 +1,7 @@
 package multiformat;
 
-import java.io.StringWriter;
-import multiformat.business.BeanExporter;
-import multiformat.business.IDataExporter;
-import multiformat.exporters.DataExporterFactory;
+import multiformat.business.GenericGenerator;
+import multiformat.business.IWriter;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,20 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MultiFormatRestController {
     @RequestMapping(value="/multiformat", method=RequestMethod.POST)
-    public String multiformatSubmit(@ModelAttribute TestInputBean input, Model model) {        
-        StringWriter sw = new StringWriter();        
+    public String multiformatSubmit(@ModelAttribute TestInputBean input, Model model) throws Exception {
         
-        DataExporterFactory exportFactory = new DataExporterFactory();
+        GenericGenerator csvGen = new GenericGenerator();
         
-        IDataExporter dataExporter = exportFactory.createDataExporter(input.getFormat(), sw);
-        if (dataExporter == null) {
-            return "Unrecognized format: " + input.getFormat();
-        }
+        Class modelClass = Class.forName("multiformat.models.Test" + input.getType() +  "Bean");
+        Class outputClass = Class.forName("multiformat.business." + input.getFormat() + "Writer");
         
-        BeanExporter beanExporter = new BeanExporter();
-        beanExporter.exportBean(dataExporter, input.getType());                        
-        dataExporter.finishExporting();
-        
-        return sw.toString();
+        String csv = csvGen.generateTemplate(modelClass, (IWriter) outputClass.newInstance());        
+        return csv;
     }
 }
