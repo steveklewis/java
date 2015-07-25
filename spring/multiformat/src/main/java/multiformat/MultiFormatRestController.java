@@ -24,7 +24,7 @@ public class MultiFormatRestController {
         
         IWriter writer = (IWriter) outputClass.newInstance();
         
-        gen.generateTemplate(modelClass, (IWriter) writer);
+        gen.writeFields(modelClass, (IWriter) writer);
         return writer.toString();
     }
 }

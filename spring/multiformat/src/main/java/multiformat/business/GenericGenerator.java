@@ -23,7 +23,7 @@ public class GenericGenerator {
                 || type.isPrimitive());
     }
 
-    public void generateTemplate(Class clazz, IWriter writer)
+    public void writeFields(Class clazz, IWriter writer)
             throws IllegalAccessException, InstantiationException {
         Object topBean = clazz.newInstance();
 
