@@ -14,10 +14,10 @@ public class JsonWriter implements IWriter {
     
     
     @Override
-    public void write(Field[] fields, Field field, Object bean, int i, boolean embedded)
+    public void write(Field field, Object bean, boolean lastField, boolean embedded)
             throws IllegalAccessException {
         json += "\"" + field.getName() + "\":\"" + field.get(bean) + "\"";
-        if (i < fields.length - 1 || embedded) {
+        if (!lastField || embedded) {
             json += ",";            
         }        
     }

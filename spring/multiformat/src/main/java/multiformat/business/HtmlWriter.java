@@ -15,7 +15,7 @@ public class HtmlWriter implements IWriter {
     
     
     @Override
-    public void write(Field[] fields, Field field, Object bean, int i, boolean embedded)
+    public void write(Field field, Object bean, boolean lastField, boolean embedded)
             throws IllegalAccessException {
         tableHeaders = tableHeaders += "<th>" + field.getName() + "</th>";
         tableValues = tableValues += "<td>" + field.get(bean) + "</td>";

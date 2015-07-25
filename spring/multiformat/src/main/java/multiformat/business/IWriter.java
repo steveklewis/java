@@ -7,7 +7,7 @@ import java.lang.reflect.Field;
  * @author slewis
  */
 public interface IWriter {
-    public void write(Field[] fields, Field field, Object bean, int i, boolean embedded)
+    public void write(Field field, Object bean, boolean lastField, boolean embedded)
             throws IllegalAccessException;
     
     public String toString();

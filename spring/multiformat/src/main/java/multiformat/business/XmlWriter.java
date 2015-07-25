@@ -12,12 +12,11 @@ public class XmlWriter implements IWriter {
   
     
     @Override
-    public void write(Field[] fields, Field field, Object bean, int i, boolean embedded)
+    public void write(Field field, Object bean, boolean lastField, boolean embedded)
             throws IllegalAccessException {
         xml = xml += "<" + field.getName() + ">" + field.get(bean) + "</" + field.getName() + ">";        
     }
-    
-        
+            
     public String toString() {
         return xml + "</xml>";
     }

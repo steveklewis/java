@@ -17,12 +17,14 @@ public class MultiFormatRestController {
     @RequestMapping(value="/multiformat", method=RequestMethod.POST)
     public String multiformatSubmit(@ModelAttribute TestInputBean input, Model model) throws Exception {
         
-        GenericGenerator csvGen = new GenericGenerator();
+        GenericGenerator gen = new GenericGenerator();
         
         Class modelClass = Class.forName("multiformat.models.Test" + input.getType() +  "Bean");
         Class outputClass = Class.forName("multiformat.business." + input.getFormat() + "Writer");
         
-        String csv = csvGen.generateTemplate(modelClass, (IWriter) outputClass.newInstance());        
-        return csv;
+        IWriter writer = (IWriter) outputClass.newInstance();
+        
+        gen.generateTemplate(modelClass, (IWriter) writer);
+        return writer.toString();
     }
 }

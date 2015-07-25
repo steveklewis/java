@@ -11,11 +11,11 @@ public class CsvWriter implements IWriter {
     StringBuilder sbHeaders = new StringBuilder();
     StringBuilder sbValues = new StringBuilder();
     
-    public void write(Field[] fields, Field field, Object bean, int i, boolean embedded)
+    public void write(Field field, Object bean, boolean lastField, boolean embedded)
             throws IllegalAccessException {
         sbHeaders.append(field.getName());
         sbValues.append(field.get(bean));
-        if (i < fields.length - 1 || embedded) {
+        if (!lastField || embedded) {
             sbHeaders.append(",");
             sbValues.append(",");
         }
