@@ -2,6 +2,7 @@ package multiformat;
 
 import multiformat.business.GenericGenerator;
 import multiformat.business.IWriter;
+import multiformat.business.WriterFactory;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,12 +20,10 @@ public class MultiFormatRestController {
         
         GenericGenerator gen = new GenericGenerator();
         
-        Class modelClass = Class.forName("multiformat.models.Test" + input.getType() +  "Bean");
-        Class outputClass = Class.forName("multiformat.business." + input.getFormat() + "Writer");
+        Class modelClass = BeanFactory.getBeanClass(input.getType());        
+        IWriter writer = WriterFactory.createWriter(input.getFormat());
         
-        IWriter writer = (IWriter) outputClass.newInstance();
-        
-        gen.writeFields(modelClass, (IWriter) writer);
+        gen.writeFields(modelClass, writer);
         return writer.toString();
     }
 }
