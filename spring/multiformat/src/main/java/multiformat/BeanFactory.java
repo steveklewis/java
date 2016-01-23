@@ -14,9 +14,9 @@ import multiformat.models.TestUserBean;
  * @author slewis
  */
 public class BeanFactory {
-    
-    public static Class getBeanClass (String type) {
-        
+
+    public static Class getBeanClass(String type) {
+
         if ("Beach".equalsIgnoreCase(type)) {
             return new TestBeachBean().getClass();
         } else if ("Story".equalsIgnoreCase(type)) {
@@ -24,6 +24,19 @@ public class BeanFactory {
         } else if ("User".equalsIgnoreCase(type)) {
             return new TestUserBean().getClass();
         }
-        return null;        
+        return null;
+    }
+
+    public static Object getBeanInstance(String type) {
+
+        if ("Beach".equalsIgnoreCase(type)) {
+            return new TestBeachBean();
+        } else if ("Story".equalsIgnoreCase(type)) {
+            return new TestStoryBean();
+        } else if ("User".equalsIgnoreCase(type)) {
+            return new TestUserBean();
+        }
+        return null;
+
     }
 }

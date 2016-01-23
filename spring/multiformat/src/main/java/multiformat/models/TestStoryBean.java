@@ -11,4 +11,32 @@ public class TestStoryBean {
     private Date createdDate = new Date();
     private int position = 15;
     private boolean published = false;
+
+    public String getHeadline() {
+        return headline;
+    }
+
+    public TestUserBean getAuthor() {
+        return author;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public Date getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public boolean isPublished() {
+        return published;
+    }
 }

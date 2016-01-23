@@ -21,15 +21,16 @@ public class MultiFormatController {
         return "multiformat";
     }
     
-    @RequestMapping(value="/multiformat", method=RequestMethod.POST)
-    public @ResponseBody String multiformatSubmit(@ModelAttribute TestInputBean input, Model model) throws Exception {
+    @RequestMapping(value="/multiformat", method=RequestMethod.POST, produces={"application/json", "application/xml"})
+    public @ResponseBody Object multiformatSubmit(@ModelAttribute TestInputBean input, Model model) throws Exception {
+//        GenericGenerator gen = new GenericGenerator();
+//        
+//        Class modelClass = BeanFactory.getBeanClass(input.getType());        
+//        IWriter writer = WriterFactory.createWriter(input.getFormat());
         
-        GenericGenerator gen = new GenericGenerator();
-        
-        Class modelClass = BeanFactory.getBeanClass(input.getType());        
-        IWriter writer = WriterFactory.createWriter(input.getFormat());
-        
-        gen.writeFields(modelClass, writer);
-        return writer.toString();
+        //gen.writeFields(modelClass, writer);
+        //return writer.toString();
+        System.out.println(BeanFactory.getBeanInstance(input.getType()));
+        return BeanFactory.getBeanInstance(input.getType());
     }
 }

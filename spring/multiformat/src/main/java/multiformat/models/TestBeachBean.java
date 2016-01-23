@@ -12,5 +12,30 @@ public class TestBeachBean {
     private final boolean gulf = true;
     private final boolean peaceful = true;
     private final Date creationDate = new Date();
-    private final Date modifiedDate = new Date();   
+    private final Date modifiedDate = new Date();
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isOcean() {
+        return ocean;
+    }
+
+    public boolean isGulf() {
+        return gulf;
+    }
+
+    public boolean isPeaceful() {
+        return peaceful;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public Date getModifiedDate() {
+        return modifiedDate;
+    }
+    
 }
