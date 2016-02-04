@@ -1,0 +1,27 @@
+import graphene
+
+print(graphene)
+print(dir(graphene))
+class Query(graphene.ObjectType):
+    hello = graphene.String(description='A typical hello world')
+    ping = graphene.String(description='Ping someone',
+                           to=graphene.String())
+
+    def resolve_hello(self, args, info):
+        return 'World'
+
+    def resolve_ping(self, args, info):
+        return 'Pinging {}'.format(args.get('to'))
+
+schema = graphene.Schema(query=Query)
+
+query = '''
+    query SayHello {
+      hello
+      ping(to:"peter")
+    }
+'''
+result = schema.execute(query)
+print(result)
+print dir(result)
+print(result.data)
