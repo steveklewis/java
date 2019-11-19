@@ -1,3 +1,5 @@
+package com.steveklewis.springreact;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
